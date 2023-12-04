@@ -6,6 +6,8 @@ This repository contains the codebase for a Spotify clone created using React Na
 
 The purpose of this project is to learn React Native by implementing a Spotify clone application. The YouTube video linked above serves as a guide to understand the implementation details and functionalities of building a music streaming app like Spotify using React Native and JavaScript.
 
+This project utilizes the Spotify API to fetch music data, user playlists, and other related information.
+
 # How to install/run
 1. Clone the repository onto your machine
 2. Run npm install to install the required packages
