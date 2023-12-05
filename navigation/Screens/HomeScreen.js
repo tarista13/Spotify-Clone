@@ -13,11 +13,14 @@ import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import artistCard from "../../components/ArtistCard";
+import ArtistCard from "../../components/ArtistCard";
+import RecentlyPlayedCard from "../../components/RecentlyPlayedCard";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
 const HomeScreen = () => {
   const [userProfile, setUserProfile] = useState();
+  const navigation = useNavigation();
   const [recentlyPlayedSongs, setRecentlyPlayedSongs] = useState([]);
   const [topArtists, setTopArtists] = useState([]);
   const greetingMessage = () => {
@@ -230,6 +233,7 @@ const HomeScreen = () => {
           >
             <LinearGradient colors={["#33006F", "#FFFFFF"]}>
               <Pressable
+              onPress={navigation.navigate("Liked")}
                 style={{
                   width: 55,
                   height: 55,
@@ -297,7 +301,28 @@ const HomeScreen = () => {
             <ArtistCard item={item} key={index} />
           ))}
         </ScrollView>
-        
+
+        <View style={{ height: 10 }} />
+
+        <Text
+          style={{
+            color: "white",
+            fontSize: 19,
+            fontWeight: "bold",
+            marginHorizontal: 10,
+            marginTop: 10,
+          }}
+        >
+          Recently Played
+        </Text>
+        <FlatList
+          data={recentlyPlayedSongs}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item, index }) => (
+            <RecentlyPlayedCard item={item} key={index} />
+          )}
+        />
       </ScrollView>
     </LinearGradient>
   );

@@ -8,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import LoginScreen from "./Screens/LoginScreen";
 import HomeScreen from "./Screens/HomeScreen";
+import LikedSongsScreen from "./Screens/LikedSongsScreen";
 import MusicScreen from "./Screens/MusicScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
 
@@ -88,6 +89,7 @@ function Navigation(){
             <Stack.Navigator>
                 <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
                 <Stack.Screen name="Main" component={BottomTabs} options={{headerShown:false}} />
+                <Stack.Screen name="Liked" component={LikedSongsScreen} options={{headerShown:false}} />
                 <Stack.Screen name="Music" component={BottomTabs} options={{headerShown:false}} />
                 <Stack.Screen name="Profile" component={BottomTabs} options={{headerShown:false}} />
             </Stack.Navigator>
